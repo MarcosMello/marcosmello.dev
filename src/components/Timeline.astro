@@ -1,0 +1,39 @@
+---
+import SectionsTitle from "./SectionsTitle.astro";
+
+interface Highlight {
+    date: string,
+    title: string,
+    description?: string
+}
+
+interface Props {
+    timelineTitle: string,
+    highlights?: Array<Highlight>
+}
+
+const { timelineTitle, highlights } = Astro.props;
+---
+
+<div class="w-full flex flex-col gap-10" id={"timeline-" + timelineTitle}>
+    <SectionsTitle title={timelineTitle}/>
+
+    <ol class="relative border-s border-dark-purple dark:border-purple ml-4 lg:ml-8">
+        {highlights?.map(({ date, title, description }) => (
+            <li class="mb-10 ms-6">
+                <div class="absolute w-6 h-6 rounded-full mt-3 -start-3 bg-dark-purple dark:bg-purple border border-dark-purple dark:border-purple"></div>
+                <div class="pt-4 w-full mb-4 flex flex-col gap-2">
+                    <time class="text-lg font-extralight leading-none text-black dark:text-white">
+                        {date}
+                    </time>
+                    <h3 class="text-xl font-medium text-black dark:text-white italic">
+                        {title}
+                    </h3>
+                    <p class="text-base text-justify font-normal text-black dark:text-white break-words">
+                        {description}
+                    </p>
+                </div>
+            </li>
+        ))}
+    </ol>
+</div>

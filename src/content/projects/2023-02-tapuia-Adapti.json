@@ -1,0 +1,44 @@
+{
+  "short_description": "Site Institucional Vila Tapuia — Adapti Soluções Web — Projeto Extensão da Universidade",
+  "iconsProperties": [
+    {
+      "name": "simple-icons:html5",
+      "color": "#E34F26",
+      "width": "1.75rem",
+      "height": "1.75rem"
+    },
+    {
+      "name": "simple-icons:css3",
+      "color": "#1572B6",
+      "width": "1.75rem",
+      "height": "1.75rem"
+    },
+    {
+      "name": "simple-icons:javascript",
+      "color": "#F7DF1E",
+      "width": "1.75rem",
+      "height": "1.75rem"
+    },
+    {
+      "name": "simple-icons:php",
+      "color": "#777BB4",
+      "width": "1.75rem",
+      "height": "1.75rem"
+    },
+    {
+      "name": "simple-icons:laravel",
+      "color": "#FF2D20",
+      "width": "1.75rem",
+      "height": "1.75rem"
+    },
+    {
+      "name": "simple-icons:mysql",
+      "color": "#4479A1",
+      "width": "1.75rem",
+      "height": "1.75rem"
+    }
+  ],
+  "imagePath": "/src/assets/encomp-landing-page.jpeg",
+  "altText": "Site Institucional Vila Tapuia",
+  "windowTitle": "marcos - Adapti - 2023"
+}

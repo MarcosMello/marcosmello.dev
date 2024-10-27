@@ -1,0 +1,38 @@
+---
+import { Icon } from 'astro-icon/components'
+
+interface Person {
+    name: string,
+    contribution: string,
+    linkedin?: string,
+    github?: string,
+    behance?: string
+}
+
+interface Props {
+    people?: Array<Person>
+}
+
+const { people } = Astro.props;
+---
+<div class="flex flex-col md:flex-row md:justify-between md:flex-wrap items-center container mx-auto my-3 px-6 md:px-12">
+    {people?.map(({name, contribution, linkedin, github, behance}) => (
+        <div class="flex gap-x-5 justify-between">
+            <p class="font-sans text-base font-normal text-black dark:text-white">
+                {contribution + " " + name}
+            </p>
+
+            {linkedin ? <a href={linkedin} target="_blank" rel="noreferrer" class="w-auto h-auto" aria-label={"Link para linkedin de " + name}>
+                <Icon name="simple-icons:linkedin" height="100%" color="white"/>
+            </a> : null}
+
+            {github ? <a href={github} target="_blank" rel="noreferrer" class="w-auto h-auto" aria-label={"Link para Github de " + name}>
+                <Icon name="simple-icons:github" height="100%" color="white"/>
+            </a> : null}
+
+            {behance ? <a href={behance} target="_blank" rel="noreferrer" class="w-auto h-auto" aria-label={"Link para Behance de " + name}>
+                <Icon name="simple-icons:behance" height="100%" color="white"/>
+            </a> : null}
+        </div>
+    ))}
+</div>

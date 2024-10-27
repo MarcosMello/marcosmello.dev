@@ -1,0 +1,28 @@
+---
+import { Icon } from 'astro-icon/components'
+import type { CollectionEntry } from 'astro:content';
+
+import MacOSWindow from "./MacOSWindow.astro";
+
+interface Props {
+    projects: Array<CollectionEntry<'projects'>>,
+}
+
+const { projects } = Astro.props;
+---
+
+<div class="flex flex-row flex-wrap gap-y-12 justify-between">
+    {projects.map(({data: {short_description, iconsProperties, imagePath, altText, windowTitle}}, index) => (
+        <div class="flex flex-col min-w-24 sm:w-full md:w-[calc(50%-2.5rem)] lg:w-[calc(33%-1.6rem)] lg:max-w[26.25rem] gap-y-6">
+            <MacOSWindow imagePath={imagePath} altText={altText} windowTitle={windowTitle} id={"project-" + index}/>
+            <div class="flex flex-row flex-wrap gap-x-6">
+                {iconsProperties.map(({name, color, width, height}) => (
+                        <Icon name={name} width={width} height={height} color={color}/>
+                ))}
+            </div>
+            <p class="text-xl text-justify font-sans font-light text-black dark:text-white break-words">
+                {short_description}
+            </p>
+        </div>
+    ))}
+</div>
