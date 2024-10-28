@@ -15,7 +15,7 @@ const { projects } = Astro.props;
     {projects.map(({data: {short_description, iconsProperties, imagePath, altText, windowTitle}}, index) => (
         <div class="flex flex-col min-w-24 sm:w-full md:w-[calc(50%-1.5rem)] lg:w-[calc((100%/3)-2rem)] max-w[26.25rem] gap-y-6">
             <MacOSWindow imagePath={imagePath} altText={altText} windowTitle={windowTitle} id={"project-" + index}/>
-            <div class="flex flex-row flex-wrap gap-x-6">
+            <div class="flex flex-row flex-wrap gap-6">
                 {iconsProperties.map(({name, color, width, height}) => (
                         <Icon name={name} width={width} height={height} color={color}/>
                 ))}
