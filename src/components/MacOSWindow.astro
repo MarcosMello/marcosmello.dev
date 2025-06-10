@@ -43,11 +43,13 @@ if (!images[imagePath]) throw new Error(`"${imagePath}" does not exist in glob: 
 
     class MacOSWindow extends HTMLElement {
         connectedCallback() {
-            const minSize = ((document.getElementById(this.dataset.id + "-title")?.clientWidth ?? 0) + 108);
+            requestAnimationFrame(() => {
+                const minSize = ((document.getElementById(this.dataset.id + "-title")?.clientWidth ?? 0) + 108);
 
-            const project_container_style = `#${this.dataset.id} {\n\tcontainer: ${this.dataset.id} / inline-size;\n}` + "\n\n" + `@container ${this.dataset.id} (width <= ${minSize}px) {\n\t#${this.dataset.id + "-title"} {\n\t\tmargin-left: 54px;\n\t\toverflow: hidden;\n\t}\n}`
+                const projectContainerStyle = `#${this.dataset.id} {\n\tcontainer: ${this.dataset.id} / inline-size;\n}` + "\n\n" + `@container ${this.dataset.id} (width <= ${minSize}px) {\n\t#${this.dataset.id + "-title"} {\n\t\tmargin-left: 54px;\n\t\toverflow: hidden;\n\t}\n}`
 
-            addCSS(project_container_style);
+                addCSS(projectContainerStyle);
+            })
         }
     }
 
